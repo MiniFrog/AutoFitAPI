@@ -1,0 +1,308 @@
+[
+    {
+        "team": {
+            "type": 0,
+            "name": "队伍",
+            "restrictions": {
+                "exist": "required"
+            },
+            "fields": {
+                "name": {
+                    "type": 0,
+                    "name": "队伍名字",
+                    "restrictions": {
+                        "exist": "required",
+                        "type": "string",
+                        "length": {
+                            "min": ">0",
+                            "max": "20"
+                        }
+                    }
+                },
+                "slogan": {
+                    "type": 2,
+                    "name": "队伍口号",
+                    "restrictions": {
+                        "exist": [
+                            "required",
+                            "nullable"
+                        ],
+                        "type": "string",
+                        "length": {
+                            "min": ">=0",
+                            "max": ""
+                        }
+                    }
+                }
+            }
+        },
+        "leader": {
+            "type": 0,
+            "name": "队长",
+            "restrictions": {
+                "exist": "required"
+            },
+            "fields": {
+                "name": {
+                    "type": 0,
+                    "name": "姓名",
+                    "restrictions": {
+                        "exist": "required",
+                        "type": "string",
+                        "length": {
+                            "min": ">=0",
+                            "max": "255"
+                        }
+                    }
+                },
+                "student_id": {
+                    "type": 2,
+                    "name": "学号",
+                    "restrictions": {
+                        "exist": [
+                            "required",
+                            "nullable"
+                        ],
+                        "type": "string",
+                        "length": "12"
+                    }
+                },
+                "qq": {
+                    "type": 2,
+                    "name": "QQ号",
+                    "restrictions": {
+                        "exist": [
+                            "required",
+                            "nullable"
+                        ],
+                        "type": "string",
+                        "length": "12"
+                    }
+                },
+                "gender": {
+                    "type": 2,
+                    "name": "性别",
+                    "restrictions": {
+                        "exist": "required",
+                        "type": "in:male,female,robot"
+                    }
+                },
+                "phone": {
+                    "type": 2,
+                    "name": "手机号码",
+                    "restrictions": {
+                        "exist": [
+                            "required",
+                            "nullable"
+                        ],
+                        "type": "regex:/^1[34578]\\d{9}$/"
+                    }
+                },
+                "school": {
+                    "type": 2,
+                    "name": "学院",
+                    "restrictions": {
+                        "exist": [
+                            "required",
+                            "nullable"
+                        ],
+                        "type": "string",
+                        "length": {
+                            "min": "1",
+                            "max": "26"
+                        }
+                    }
+                },
+                "major": {
+                    "type": 2,
+                    "name": "专业",
+                    "restrictions": {
+                        "exist": [
+                            "required",
+                            "nullable"
+                        ],
+                        "type": "string",
+                        "length": {
+                            "min": ">=0",
+                            "max": "20"
+                        }
+                    }
+                },
+                "memberShip": {
+                    "type": 2,
+                    "name": "是否会员",
+                    "restrictions": {
+                        "exist": "required",
+                        "type": "in:0,1"
+
+                    }
+                },
+                "dormitory": {
+                    "type": 2,
+                    "name": "宿舍地址",
+                    "restrictions": {
+                        "exist": [
+                            "required",
+                            "nullable"
+                        ],
+                        "type": "string",
+                        "length": {
+                            "min": "1",
+                            "max": "10"
+                        }
+                    }
+                },
+                "mail": {
+                    "type": 2,
+                    "name": "邮箱",
+                    "restrictions": {
+                        "exist": [
+                            "required",
+                            "nullable"
+                        ],
+                        "type": "email",
+                        "length": {
+                            "min": "4",
+                            "max": "<=255"
+                        }
+                    }
+                }
+            }
+        },
+        "members": {
+            "type": 2,
+            "name": "队员",
+            "restrictions": {
+                "size": {
+                    "min": ">=0",
+                    "max": ""
+                }
+            },
+            "fields": {
+                "name": {
+                    "type": 0,
+                    "name": "姓名",
+                    "restrictions": {
+                        "exist": "required",
+                        "type": "string",
+                        "length": {
+                            "min": ">=0",
+                            "max": "255"
+                        }
+                    }
+                },
+                "student_id": {
+                    "type": 2,
+                    "name": "学号",
+                    "restrictions": {
+                        "exist": [
+                            "required",
+                            "nullable"
+                        ],
+                        "type": "string",
+                        "length": "12"
+                    }
+                },
+                "qq": {
+                    "type": 2,
+                    "name": "QQ号",
+                    "restrictions": {
+                        "exist": [
+                            "required",
+                            "nullable"
+                        ],
+                        "type": "string",
+                        "length": "12"
+                    }
+                },
+                "gender": {
+                    "type": 2,
+                    "name": "性别",
+                    "restrictions": {
+                        "exist": "required",
+                        "type": "in:male,female,robot",
+                        "length": "12"
+                    }
+                },
+                "phone": {
+                    "type": 2,
+                    "name": "手机号码",
+                    "restrictions": {
+                        "exist": [
+                            "required",
+                            "nullable"
+                        ],
+                        "type": "regex:/^1[34578]\\d{9}$/"
+                    }
+                },
+                "school": {
+                    "type": 2,
+                    "name": "学院",
+                    "restrictions": {
+                        "exist": [
+                            "required",
+                            "nullable"
+                        ],
+                        "length": {
+                            "min": "1",
+                            "max": "26"
+                        }
+                    }
+                },
+                "major": {
+                    "type": 2,
+                    "name": "专业",
+                    "restrictions": {
+                        "exist": [
+                            "required",
+                            "nullable"
+                        ],
+                        "type": "string",
+                        "length": {
+                            "min": ">=0",
+                            "max": "20"
+                        }
+                    }
+                },
+                "memberShip": {
+                    "type": 2,
+                    "name": "是否会员",
+                    "restrictions": {
+                        "exist": "required",
+                        "type": "in:0,1"
+                    }
+                },
+                "dormitory": {
+                    "type": 2,
+                    "name": "宿舍地址",
+                    "restrictions": {
+                        "exist": [
+                            "required",
+                            "nullable"
+                        ],
+                        "type": "string",
+                        "length": {
+                            "min": "1",
+                            "max": "10"
+                        }
+                    }
+                },
+                "mail": {
+                    "type": 2,
+                    "name": "邮箱",
+                    "restrictions": {
+                        "exist": [
+                            "required",
+                            "nullable"
+                        ],
+                        "type": "email",
+                        "length": {
+                            "min": "4",
+                            "max": "<=255"
+                        }
+                    }
+                }
+            }
+        }
+    }
+]
