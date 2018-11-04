@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\AutoFitAPI as MAutoFitAPI;
 use App\Container;
+use App\Exports\AutoFitAPIExport;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 use Uuid;
 
 class AutoFitAPI extends Controller
@@ -43,8 +45,7 @@ class AutoFitAPI extends Controller
             }, $content);
             $data[] = json_decode($content, true);
         }
-        return view("export.$api->uuid.index", ['data' => $data]);
-        //return Excel::download(new AutoFitAPIExport($api->uuid, $data), $api->updated_at . ".xls");
+        return Excel::download(new AutoFitAPIExport($api->uuid, $data), $api->updated_at . ".xls");
     }
 
 
