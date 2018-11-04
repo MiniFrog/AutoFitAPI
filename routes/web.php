@@ -14,7 +14,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::prefix("/mayBeNoOneKnow/")->group(function () {
+Route::prefix("")->group(function () {
     Route::get('/', "Administration@console");
 
     Route::get('/description/{APIName}/{version?}', "Administration@description");

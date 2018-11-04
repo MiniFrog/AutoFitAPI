@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\AutoFitAPI as MAutoFitAPI;
 use App\Container;
+use App\Exports\AutoFitAPIExport;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 use Uuid;
 
 class AutoFitAPI extends Controller
@@ -25,10 +27,28 @@ class AutoFitAPI extends Controller
         Container::create([
             "code" => $code,
             "uuid" => $uuid,
-            "content" => json_encode($input)
+            "content" => json_encode($input, JSON_UNESCAPED_UNICODE)
         ]);
         return ["uuid" => $uuid];
     }
+
+    public function export($code) {
+        $api = MAutoFitAPI::where("code", "=", $code)->first(["uuid", "updated_at"]);
+        if ($api == null)
+            return [];
+        $contents = Container::where("code", "=", $code)->get(["content"]);
+        $data = [];
+        foreach ($contents as $content) {
+            $content = $content->content;
+            $content = preg_replace_callback('/\\\\u([0-9a-f]{4})/i', function($match) {
+                return mb_convert_encoding(pack('H*', $match[1]), 'UTF-8', 'UCS-2BE');
+            }, $content);
+            $data[] = json_decode($content, true);
+        }
+        return view("exports.$api->uuid.index", ['data' => $data]);
+        //return Excel::download(new AutoFitAPIExport($api->uuid, $data), $api->updated_at . ".xls");
+    }
+
 
     /**
      * 根据rules，去除无关的字段，现在还没有实现

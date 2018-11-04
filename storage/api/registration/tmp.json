@@ -1,0 +1,16 @@
+{
+    "team":["required"],
+    "team.name":["required","string","min:1","max:20"],
+    "leader":["required"],
+    "leader.name":["required","string","min:1","max:255"],
+    "leader.phone":["required","regex:\/^1[345789]\\d{9}$\/"],
+    "leader.major":["required","string","min:1","max:20"],
+    "leader.class":["required","string","min:1","max:10"],
+    "leader.dormitory":["required","string","min:1","max:10"],
+    "members":["nullable","max:2","min:0"],
+    "members.*.name":["required","string","min:1","max:255"],
+    "members.*.phone":["required","regex:\/^1[34578]\\d{9}$\/"],
+    "members.*.major":["required","string","min:1","max:20"],
+    "members.*.class":["required","string","min:1","max:10"],
+    "members.*.dormitory":["required","string","min:1","max:10"]
+}

@@ -95,7 +95,7 @@
                             "required",
                             "nullable"
                         ],
-                        "type": "regex:/^1[34578]\\d{9}$/"
+                        "type": "regex:/^1[345789]\\d{9}$/"
                     }
                 },
                 "school": {
@@ -128,13 +128,27 @@
                         }
                     }
                 },
+                "class": {
+                    "type": 2,
+                    "name": "班级",
+                    "restrictions": {
+                        "exist": [
+                            "required",
+                            "nullable"
+                        ],
+                        "type": "string",
+                        "length": {
+                            "min": "1",
+                            "max": "10"
+                        }
+                    }
+                },
                 "memberShip": {
                     "type": 2,
                     "name": "是否会员",
                     "restrictions": {
                         "exist": "required",
                         "type": "in:0,1"
-
                     }
                 },
                 "dormitory": {
@@ -232,7 +246,7 @@
                             "required",
                             "nullable"
                         ],
-                        "type": "regex:/^1[34578]\\d{9}$/"
+                        "type": "regex:/^1[345789]\\d{9}$/"
                     }
                 },
                 "school": {
