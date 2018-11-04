@@ -22,11 +22,11 @@
             <td rowspan="{{count($team["members"]) + 1}}">
                 {{$team["team"]["name"]}}
             </td>
-            @include("export.b5d55640-d8de-11e8-bf45-7dd4129d495f.person", ["person" => $team["leader"]]);
+            @include("export.b5d55640-d8de-11e8-bf45-7dd4129d495f.person", ["person" => $team["leader"]])
         </tr>
         @foreach($team["members"] as $member)
             <tr>
-                @include("export.b5d55640-d8de-11e8-bf45-7dd4129d495f.person", ["person" => $member]);
+                @include("export.b5d55640-d8de-11e8-bf45-7dd4129d495f.person", ["person" => $member])
             </tr>
         @endforeach
     @endforeach
