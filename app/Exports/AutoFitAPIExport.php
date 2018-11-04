@@ -22,6 +22,6 @@ class AutoFitAPIExport implements FromView
      */
     public function view()
     {
-        return view("exports.$this->apiUUID.index", ['data' => $this->data]);
+        return view("export.$this->apiUUID.index", ['data' => $this->data]);
     }
 }
