@@ -14,7 +14,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::prefix("")->group(function () {
+Route::prefix("mayBeNoOneKnow")->group(function () {
     Route::get('/', "Administration@console");
 
     Route::get('/description/{APIName}/{version?}', "Administration@description");
@@ -22,6 +22,8 @@ Route::prefix("")->group(function () {
     Route::get('/create/{APIName}/{version?}', "Administration@create");
 
     Route::post('/create/{APIName}/{version?}', "Administration@reprocess");
+
+    Route::get("/export/{code}", "AutoFitAPI@export");
 });
 
 
