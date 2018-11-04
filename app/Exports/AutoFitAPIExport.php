@@ -2,6 +2,7 @@
 
 namespace App\Exports;
 
+use Illuminate\Contracts\View\View;
 use Maatwebsite\Excel\Concerns\FromView;
 
 class AutoFitAPIExport implements FromView
@@ -20,7 +21,7 @@ class AutoFitAPIExport implements FromView
     /**
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\View\View
      */
-    public function view()
+    public function view(): View
     {
         return view("export.$this->apiUUID.index", ['data' => $this->data]);
     }
